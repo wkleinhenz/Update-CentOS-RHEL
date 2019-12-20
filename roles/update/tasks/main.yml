@@ -22,8 +22,3 @@
       yum:
         name: "*"
         state: latest
-    - name: Check if reboot is required
-      shell: needs-restarting -r
-      failed_when: false
-      register: reboot_required
-      changed_when: false
