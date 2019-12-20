@@ -1,6 +1,6 @@
 ---
 - name: Performing yum update on localhost
-  hosts: 
+  hosts: localhost
   become: yes
   any_errors_fatal: false
   #########################################################
@@ -10,7 +10,7 @@
     - update
 
 - name: Performing yum update on host(s)
-  hosts: 
+  hosts: first
   become: yes
   any_errors_fatal: false
   #########################################################
@@ -21,7 +21,7 @@
     - reboot
   
 - name: Performing yum update on host(s)
-  hosts: 
+  hosts: second
   become: yes
   any_errors_fatal: false
   #########################################################
