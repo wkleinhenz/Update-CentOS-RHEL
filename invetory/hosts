@@ -1,0 +1,9 @@
+[localhost]
+
+[rhel]
+
+[centos]
+
+[servers:children]
+rhel
+centos
