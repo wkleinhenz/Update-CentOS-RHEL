@@ -7,19 +7,19 @@ localhost
 [localhost:vars]
 ansible_connection=local
 
-[rhel]
+[first]
 
-[rhel:vars]
+[first:vars]
 ansible_connection=ssh
 
-[centos]
+[second]
 
-[centos:vars]
+[second:vars]
 ansible_connection=ssh
 
 [servers:children]
-rhel
-centos
+first
+second
 
 [noreboot]
 
