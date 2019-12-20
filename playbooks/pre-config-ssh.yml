@@ -10,7 +10,7 @@
     ansible_ssh_pass: passphrase_for_private_key
   tasks:
     - debug:
-        msg: hello
+        msg: " Data type of IP is {{ ansible_all_ipv4_addresses | type_debug }} "
 
 - name: Check release vrsions
   shell: grep DISTRIB_RELEASE /etc/lsb-release
