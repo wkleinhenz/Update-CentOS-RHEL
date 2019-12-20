@@ -1,7 +1,9 @@
 ---
 - hosts: all
+- name: Ping hosts
   ping: ~
 
+- name: Copy ssh-key on hosts
   connection: paramiko
   vars:
     ansible_ssh_private_key_file: /path/to/private_key
@@ -9,3 +11,6 @@
   tasks:
     - debug:
         msg: hello
+
+- name: Check release vrsions
+  shell: grep DISTRIB_RELEASE /etc/lsb-release
