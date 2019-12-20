@@ -1,11 +1,27 @@
+[all:vars]
+ansible_connection=paramiko
+
 [localhost]
+localhost
+
+[localhost:vars]
+ansible_connection=local
 
 [rhel]
 
+[rhel:vars]
+ansible_connection=ssh
+
 [centos]
+
+[centos:vars]
+ansible_connection=ssh
 
 [servers:children]
 rhel
 centos
 
 [noreboot]
+
+[noreboot:vars]
+ansible_connection=ssh
