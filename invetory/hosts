@@ -7,3 +7,5 @@
 [servers:children]
 rhel
 centos
+
+[noreboot]
