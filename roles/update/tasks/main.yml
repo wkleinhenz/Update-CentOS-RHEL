@@ -1,18 +1,11 @@
 ---
-#------------------------------------------------------------------------------
-# Description: Perform yum update on selected hosts and compare running
-#              kernel version with last updated kernel version.
-#       Notes: shell module used to compare last kernel and
-#              current, can't find a better method.
-#------------------------------------------------------------------------------
-
 - name: Check packages for updates
   shell: yum list updates | awk 'f;/Updated Packages/{f=1;}' | awk '{ print $1 }'
   changed_when: updates.stdout_lines | length > 0
   args:
     warn: false
   register: updates
-- name: display count
+- name: Display count packages to be updated
   debug:
     msg: "Found {{ updates.stdout_lines | length }} packages to be updated:\n\n{{ updates.stdout }}"
 
