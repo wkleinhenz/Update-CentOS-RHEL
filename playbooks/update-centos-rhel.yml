@@ -1,3 +1,42 @@
 ---
+- name: Performing yum update on localhost
+  hosts: 
+  become: yes
+  any_errors_fatal: false
+  #########################################################
+  # Execute update procedures
+  #########################################################
+  roles:
+    - update
 
-
+- name: Performing yum update on host(s)
+  hosts: 
+  become: yes
+  any_errors_fatal: false
+  #########################################################
+  # Execute update procedures
+  #########################################################
+  roles:
+    - update
+    - reboot
+  
+- name: Performing yum update on host(s)
+  hosts: 
+  become: yes
+  any_errors_fatal: false
+  #########################################################
+  # Execute update procedures
+  #########################################################
+  roles:
+    - update
+    - reboot
+  
+- name: Performing yum update on host(s) not reboot
+  hosts: noreboot
+  become: yes
+  any_errors_fatal: false
+  #########################################################
+  # Execute update procedures
+  #########################################################
+  roles:
+    - update
