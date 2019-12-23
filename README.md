@@ -9,11 +9,17 @@ of the License, but changing it is not allowed.
 For group update install CentOS/RHEL using Ansible
 --------------------------------------------------
 
+Requirements: (localhost)
+
+- Ansible >= 2.4.2.0
+
 *Project structure: Update-CentOS-RHEL*
 
     .
     ├── invetor
     |   |___hosts
+    |   |
+    |   |___hosts.example
     |
     |___playbooks
     |   |
@@ -39,15 +45,20 @@ For group update install CentOS/RHEL using Ansible
     |   |
     |   |___keyfile
     |
+    |___ansible.cfg
+    |
     |___logs
         |
    	    |___ansible-log.log
         
         
-Requirements: (localhost)
+## Run playbook:
 
-- Ansible >= 2.4.2.0
-
+```bash
+cd Update-CentOS-RHEL
+ansible-playbook -i inventory/hosts playbooks/pre-config-ssh.yml
+ansible-playbook -i inventory/hosts playbooks/update-centos-rhel.yml
+```
 
 
 Playbooks|Effect
