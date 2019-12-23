@@ -65,3 +65,6 @@ Playbooks|Effect
 ---------|------
 pre-config-ssh.yml|Prepares the node, copies the SSH key
 update-centos-rhel.yml|Installs the update and reboots the node
+
+## Documentation:
+[Ansible](https://docs.ansible.com/)
