@@ -9,8 +9,7 @@ of the License, but changing it is not allowed.
 For group update install CentOS/RHEL using Ansible
 --------------------------------------------------
 
-
-Update-CentOS-RHEL
+*Project structure: Update-CentOS-RHEL*
 |---invetory
 |   |
 |   |---hosts
@@ -41,6 +40,6 @@ Update-CentOS-RHEL
 |
 |---logs
     |
-	  |---ansible-log.log
+    |---ansible-log.log
     
     
