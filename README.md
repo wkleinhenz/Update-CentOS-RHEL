@@ -50,7 +50,20 @@ Requirements: (localhost)
     |___logs
         |
    	    |___ansible-log.log
-        
+
+This project is hosted at:
+
+  * https://github.com/D34m0nN0n3/Update-CentOS-RHEL/
+
+For the latest version, to contribute, and for more information, please visit
+the project pages.
+
+To clone the current master branch run:
+
+```
+git clone https://github.com/D34m0nN0n3/Update-CentOS-RHEL.git
+```
+
 ## Create an Ansible Inventory
 Create an inventory file with the appropriate groups and variables defined.
 An example inventory can be found in [inventory/hosts.example](inventory/hosts.example).
@@ -68,9 +81,6 @@ Playbooks|Effect
 pre-config-ssh.yml|Prepares the node, copies the SSH key
 update-centos-rhel.yml|Installs the update and reboots the node
 
-Use Ansible
-===========
-You can install a released version of Ansible via ``pip``, a package manager, or our `release repository <https://releases.ansible.com/ansible/>`_. See our `installation guide <https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html>`_ for details on installing Ansible on a variety of platforms.
-
 ## Documentation:
+- [Ansible installation guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 - [Ansible Documentations](https://docs.ansible.com/)
