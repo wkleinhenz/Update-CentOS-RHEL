@@ -68,6 +68,12 @@ Playbooks|Effect
 pre-config-ssh.yml|Prepares the node, copies the SSH key
 update-centos-rhel.yml|Installs the update and reboots the node
 
+Use Ansible
+===========
+You can install a released version of Ansible via ``pip``, a package manager, or
+our `release repository <https://releases.ansible.com/ansible/>`_. See our
+`installation guide <https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html>`_ for details on installing Ansible on a variety of platforms.
+
 ## Documentation:
 - [Ansible](https://github.com/ansible/ansible)
 - [Ansible Documentations](https://docs.ansible.com/)
