@@ -72,7 +72,7 @@ An example inventory can be found in [inventory/hosts.example](inventory/hosts.e
 
 ```bash
 cd Update-CentOS-RHEL
-ansible-playbook -i inventory/hosts playbooks/pre-config-ssh.yml
+ansible-playbook -i inventory/hosts playbooks/pre-config-ssh.yml --ask-pass
 ansible-playbook -i inventory/hosts playbooks/update-centos-rhel.yml
 ```
 
