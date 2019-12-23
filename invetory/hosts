@@ -1,5 +1,6 @@
 [all:vars]
-user=ocp-dev
+user=$username
+keyfile=$keyfile
 
 [localhost]
 localhost
