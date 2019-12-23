@@ -11,29 +11,37 @@ For group update install CentOS/RHEL using Ansible
 
 *Project structure: Update-CentOS-RHEL*
 
--invetory
- -hosts
-
--playbooks
- -pre-config-ssh.yml
- -update-centos-rhel.yml
-
--roles
- -update
-  -tasks
-   -main.yml
-
- -reboot
-  -tasks
-   -main.yml
-|
-|---files
+|___invetory
 |   |
-|   |---keyfile
+|   |___hosts
 |
-|---logs
+|___playbooks
+|   |
+|   |___pre-config-ssh.yml
+|   |
+|   |___update-centos-rhel.yml
+|
+|___roles
+|   |
+|   |___update
+|   |  |
+|   |  |___tasks
+|   |      |
+|   |      |___main.yml
+|   |
+|   |___reboot
+|      |
+|      |___tasks
+|          |
+|          |___main.yml
+|
+|___files
+|   |
+|   |___keyfile
+|
+|___logs
     |
-    |---ansible-log.log
+   	|___ansible-log.log
     
 Playbooks|Effect
 ---------|------
