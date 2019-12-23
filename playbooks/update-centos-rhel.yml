@@ -38,7 +38,7 @@
   roles:
     - update
     - reboot
-  tasks:
+   tasks:
   - name: System details
     debug: msg="{{ item }}"
     with_items:
