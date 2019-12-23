@@ -20,7 +20,7 @@
   roles:
     - update
     - reboot
-  
+
 - name: Performing yum update on host(s)
   hosts: second
   become: yes
@@ -31,7 +31,7 @@
   roles:
     - update
     - reboot
-  
+
 - name: Performing yum update on host(s) not reboot
   hosts: noreboot
   become: yes
