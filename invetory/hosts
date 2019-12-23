@@ -1,5 +1,5 @@
 [all:vars]
-ansible_connection=paramiko
+user=ocp-dev
 
 [localhost]
 localhost
@@ -8,11 +8,13 @@ localhost
 ansible_connection=local
 
 [first]
+10.248.60.151
 
 [first:vars]
 ansible_connection=ssh
 
 [second]
+10.248.60.152
 
 [second:vars]
 ansible_connection=ssh
@@ -22,6 +24,7 @@ first
 second
 
 [noreboot]
+10.248.60.153
 
 [noreboot:vars]
 ansible_connection=ssh
