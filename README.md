@@ -35,4 +35,6 @@ For group update install CentOS/RHEL using Ansible
     |
     |---ansible-log.log
     
-    
+Playbooks|Effect
+---------|------
+
