@@ -42,7 +42,14 @@ For group update install CentOS/RHEL using Ansible
     |___logs
         |
    	    |___ansible-log.log
-    
+        
+        
+Requirements: (localhost)
+
+- Ansible >= 2.4.2.0
+
+
+
 Playbooks|Effect
 ---------|------
 
