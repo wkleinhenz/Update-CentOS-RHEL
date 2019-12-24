@@ -16,7 +16,7 @@ Requirements: (localhost)
 *Project structure: Update-CentOS-RHEL*
 
     .
-    ├── invetor
+    ├── inventory
     |   |___hosts
     |   |
     |   |___hosts.example
