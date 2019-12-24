@@ -1,6 +1,8 @@
 [all:vars]
-user=username
-keyfile=files/key.pub
+user={{ username }}
+# Create password: python -c 'import crypt,getpass;pw=getpass.getpass();print(crypt.crypt(pw) if (pw==getpass.getpass("Confirm: ")) else exit())'
+password={{ password }}
+keyfile={{ /PATH/files/key.pub }}
 
 [localhost]
 localhost
