@@ -4,9 +4,23 @@
   tasks:
     - ping: ~
 
-- name: Copy ssh-key on hosts
+- name: Create user and copy ssh-key on hosts
   hosts: all
   tasks:
+    - user:
+        name: "{{ user }}"
+        password: "{{ password }}"
+        groups: wheel
+        append: yes
+        shell: "/bin/bash"
+        state: present
+    - lineinfile:
+        path: "/etc/sudoers.d/{{ user }}"
+        line: "{{ user }} ALL=(ALL) NOPASSWD: ALL"
+        state: present
+        mode: 0440
+        create: yes
+        validate: 'visudo -cf %s'
     - authorized_key:
         user: "{{ user }}"
         state: present
