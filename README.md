@@ -11,7 +11,7 @@ For group update install CentOS/RHEL using Ansible
 
 Requirements: (localhost)
 
-- Ansible >= 2.4.2.0
+- Ansible >= 2.7
 
 *Project structure: Update-CentOS-RHEL*
 
