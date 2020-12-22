@@ -75,3 +75,10 @@
     - name: Reboot time
       debug:
         msg: "The system rebooted in {{ reboot_result.elapsed }} seconds."
+        
+    - name: System details
+      debug: msg="{{ item }}"
+      with_items:
+      - "{{ ansible_distribution }}"
+      - "{{ ansible_distribution_version }}"
+      - "{{ ansible_distribution_major_version }}"
