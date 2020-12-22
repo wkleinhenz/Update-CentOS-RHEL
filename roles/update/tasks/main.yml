@@ -1,17 +1,77 @@
 ---
-- name: Check packages for updates
-  shell: yum list updates | awk 'f;/Updated Packages/{f=1;}' | awk '{ print $1 }'
-  changed_when: updates.stdout_lines | length > 0
-  args:
-    warn: false
-  register: updates
-- name: Display count packages to be updated
-  debug:
-    msg: "Found {{ updates.stdout_lines | length }} packages to be updated:\n\n{{ updates.stdout }}"
+- name: Install yum-utils
+  yum:
+    name: yum-utils
+    state: present
 
-- when: updates.stdout_lines | length > 0
+- name: List updates (yum)
+  yum:
+    list: updates
+    update_cache: true
+  register: yum_total_output
+  tags:
+    - check_update
+
+- name: List security updates (yum --security)
+  yum:
+    list: security
+    update_cache: true
+  register: yum_security_output
+  tags:
+    - check_update
+
+- name: Install security updates
+  yum:
+    name: '*'
+    security: yes
+    state: latest
+    exclude: "{{ exclude | default(omit, true) }}"
+    skip_broken: "{{ skip_broken | default(false) }}"
+  when: update_sec is defined
+  ignore_errors: yes
+  tags:
+    - security_updates
+
+- name: Install all updates
+  yum:
+    name: '*'
+    state: latest
+    exclude: "{{ exclude | default(omit, true) }}"
+    skip_broken: "{{ skip_broken | default(false) }}"
+  when: update_all is defined
+  ignore_errors: yes 
+  tags:
+    - all_updates
+
+- name: Reload systemd service unit
+  systemd:
+    name: check-updates.service
+    state: started
+    masked: no
+  tags:
+    - check_update
+    
+- name: Check if reboot is required
+  shell: needs-restarting -r
+  changed_when: false
+  failed_when: reboot_required.rc not in [0,1]
+  register: reboot_required
+
+- when: (reboot_required.rc != 0) and ((need_reboot | bool == true) and (need_reboot is defined))
   block:
-    - name: Updating all packages
-      yum:
-        name: "*"
-        state: latest
+    - name: Reboot the server if required
+      reboot:
+        msg: "Reboot required for updated kernel."
+        pre_reboot_delay: 10
+        post_reboot_delay: 15 
+        connect_timeout: 30
+        reboot_timeout: 600
+      ignore_errors: true
+      changed_when: false
+      async: 1
+      poll: 0
+      register: reboot_result
+   
+    - name: Reboot time
+      debug:
+        msg: "The system rebooted in {{ reboot_result.elapsed }} seconds."
