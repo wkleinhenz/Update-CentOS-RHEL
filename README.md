@@ -32,12 +32,6 @@ Requirements: (localhost)
     |___roles
     |   |
     |   |___update
-    |   |  |
-    |   |  |___tasks
-    |   |      |
-    |   |      |___main.yml
-    |   |
-    |   |___reboot
     |      |
     |      |___tasks
     |          |
